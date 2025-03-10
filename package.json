@@ -1,0 +1,46 @@
+{
+  "name": "easy-marketplace-reviews",
+  "version": "1.0.0",
+  "description": "App to collect reviews from marketplaces.",
+  "main": "server.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "lint:js": "eslint --ext \".ts,.js\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:js && npm run lint:prettier",
+    "lintfix": "prettier --write --list-different . && npm run lint:js --fix",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "template",
+    "app",
+    "nodejs",
+    "easyoneweb",
+    "ncsemena",
+    "reviews"
+  ],
+  "author": "EasyOneWeb LLC",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.12.1",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "@types/node-cron": "^3.0.11",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
