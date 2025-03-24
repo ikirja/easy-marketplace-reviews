@@ -19,6 +19,7 @@ export async function create(req: Request, res: Response): Promise<void> {
 
   if (!validateType(type)) {
     res.json({ error: true });
+    return;
   }
 
   try {
