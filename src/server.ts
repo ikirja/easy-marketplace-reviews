@@ -4,8 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import * as cron from './lib/cron';
-import { apiV1 } from './api/v1';
-import * as securityMiddleware from './middleware/security';
+import { apiV1 } from './router/api/v1';
+import * as securityMiddleware from './router/middleware/security';
 
 const DEFAULT_DB = 'mongodb://localhost:27017/easy-marketplace-reviews';
 const DEFAULT_PORT = 3000;
