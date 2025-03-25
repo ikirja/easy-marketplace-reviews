@@ -11,3 +11,8 @@ export const enum FeedbackType {
   Wildberries = 'wildberries',
   Ozon = 'ozon',
 }
+
+export const enum AiLogType {
+  AISummarizeWBReviews = 'aisummwbreviews',
+  AISummarizeOZONReviews = 'aisummozonreviews',
+}
