@@ -1,4 +1,6 @@
-import { WBReviewModel, TaskModel, LogModel } from './models';
+import WBReviewModel from './models/wb-review';
+import TaskModel from './models/task';
+import LogModel from './models/log';
 
 type Models = {
   wbReview: typeof WBReviewModel;
