@@ -186,9 +186,14 @@ export async function addReviewSumms(minProductValuation: number) {
   await dbReviewSummsCreate(newReviewSumms);
 }
 
-export async function updateReviewSummsAI(limit: number) {
+export async function updateReviewSummsAI(limit: number): Promise<boolean> {
+  let allReviewSummsComplete = true;
   let reviewSumms = await getReviewSummsUncompleted();
-  reviewSumms = reviewSumms.slice(0, limit);
+  
+  if (reviewSumms.length > limit) {
+    reviewSumms = reviewSumms.slice(0, limit);
+    allReviewSummsComplete = false;
+  }
 
   const jsonResponseFormat = `
     \`\`\`json
@@ -248,4 +253,6 @@ export async function updateReviewSummsAI(limit: number) {
   for (let i = 0; i < updatedReviewSumms.length; i++) {
     await dbReviewSummsUpdate(updatedReviewSumms[i]);
   }
+
+  return allReviewSummsComplete;
 }
