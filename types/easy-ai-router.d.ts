@@ -9,11 +9,6 @@ export const enum Role {
   User = 'user',
 }
 
-export const enum OpenrouterLimits {
-  FreeLimit = Number(process.env.SERVICE_EASY_AI_ROUTER_OPENROUTER_LIMIT) ||
-    180,
-}
-
 export type OpenrouterChatResponse = {
   id: string;
   choices: Choice[];

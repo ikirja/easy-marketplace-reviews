@@ -4,7 +4,7 @@ import * as task from '../task';
 import * as log from '../log';
 
 import { TaskType } from '../../../types/db';
-import { OpenrouterLimits } from '../../../types/easy-ai-router';
+import { OpenrouterLimits } from '../easy-ai-router';
 
 const CRON_TIME_WB_FEEDBACKS =
   process.env.CRON_TIME_WB_FEEDBACKS || '*/1 * * * *';
@@ -99,7 +99,7 @@ async function aiSummarizeWBReviews() {
       return;
     }
 
-    const REQUEST_LIMIT_PER_CRON_TASK = 10;
+    const REQUEST_LIMIT_PER_CRON_TASK = 3;
     const taskIsComplete = await mpReviews.wbReviews.updateReviewSummsAI(
       REQUEST_LIMIT_PER_CRON_TASK,
     );
