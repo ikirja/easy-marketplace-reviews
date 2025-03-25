@@ -9,3 +9,15 @@ export async function getReviews(req: Request, res: Response): Promise<void> {
     res.json({ error: true });
   }
 }
+
+export async function getReviewSumms(
+  req: Request,
+  res: Response,
+): Promise<void> {
+  try {
+    const reviewSumms = await mpReviews.wbReviews.getReviewSumms();
+    res.json({ success: true, data: reviewSumms });
+  } catch (error) {
+    res.json({ error: true });
+  }
+}
