@@ -1,3 +1,5 @@
+import { AiReviewSummData } from './db';
+
 export type WBReviewResponse = {
   data: {
     countUnanswered: number;
@@ -37,4 +39,17 @@ export type LocalReviewUpdateQuery = {
     update: LocalReview;
     upsert: boolean;
   };
+};
+
+export interface ReviewByProducts {
+  [index: string]: ProductReviews;
+}
+
+export type ProductReviews = {
+  feedbackType: FeedbackType;
+  reviews: string[];
+  productId: string;
+  productValuation: number;
+  isComplete: boolean;
+  aiData: AiReviewSummData;
 };
