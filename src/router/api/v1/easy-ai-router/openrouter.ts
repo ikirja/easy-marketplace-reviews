@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import easyAI from '../../../../lib/easy-ai-router';
 import * as log from '../../../../lib/log';
 
-import { Message, OpenrouterLimits } from '../../../../../types/easy-ai-router';
+import { Message } from '../../../../../types/easy-ai-router';
 import { AiLogType } from '../../../../../types/db';
 
 export async function ping(req: Request, res: Response): Promise<void> {
@@ -43,8 +43,10 @@ export async function chat(req: Request, res: Response): Promise<void> {
 
 export async function limits(req: Request, res: Response): Promise<void> {
   try {
-    const limit = OpenrouterLimits.FreeLimit;
-    const used = await log.getTodaysAiLogs();
+    const limit =
+      Number(process.env.SERVICE_EASY_AI_ROUTER_OPENROUTER_LIMIT) || 180;
+    const todaysAiLogs = await log.getTodaysAiLogs();
+    const used = todaysAiLogs.length;
 
     res.status(200).json({ limit: limit, used: used });
   } catch (error) {
