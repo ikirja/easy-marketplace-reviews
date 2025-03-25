@@ -13,6 +13,6 @@ router.post('/task', task.create);
 router.get('/easy-ai/openrouter/ping', ai.openrouter.ping);
 router.get('/easy-ai/openrouter/key', ai.openrouter.key);
 router.post('/easy-ai/openrouter/chat', ai.openrouter.chat);
-router.post('/easy-ai/openrouter/limits', ai.openrouter.limits);
+router.get('/easy-ai/openrouter/limits', ai.openrouter.limits);
 
 export const apiV1 = router;
