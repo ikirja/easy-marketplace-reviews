@@ -68,6 +68,7 @@ async function summarizeWBReviews() {
 
     const MINIMUM_PRODUCT_VALUATION = 4;
     await mpReviews.wbReviews.addReviewSumms(MINIMUM_PRODUCT_VALUATION);
+    await task.setAsCompleted(uncompletedTask._id.toString());
   } catch (error) {
     if (error instanceof Error) {
       await log.createLog(error.message);
@@ -99,7 +100,10 @@ async function aiSummarizeWBReviews() {
     }
 
     const REQUEST_LIMIT_PER_CRON_TASK = 10;
-    await mpReviews.wbReviews.updateReviewSummsAI(REQUEST_LIMIT_PER_CRON_TASK);
+    const taskIsComplete = await mpReviews.wbReviews.updateReviewSummsAI(REQUEST_LIMIT_PER_CRON_TASK);
+    if (taskIsComplete) {
+      await task.setAsCompleted(uncompletedTask._id.toString());
+    }
   } catch (error) {
     if (error instanceof Error) {
       await log.createLog(error.message);
