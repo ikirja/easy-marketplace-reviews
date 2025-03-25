@@ -16,7 +16,21 @@ const app: Express = express();
 
 mongoose.connect(DB);
 
-cron.cronTaskUpdateWBReviews.start();
+const CRON_RUN_WB_FEEDBACK = Boolean(process.env.CRON_RUN_WB_FEEDBACK) || false;
+const CRON_RUN_WB_FEEDBACKS_SUMMARIZE =
+  Boolean(process.env.CRON_RUN_WB_FEEDBACKS_SUMMARIZE) || false;
+const CRON_RUN_WB_FEEDBACKS_AI_SUMMARIZE =
+  Boolean(process.env.CRON_RUN_WB_FEEDBACKS_AI_SUMMARIZE) || false;
+
+if (CRON_RUN_WB_FEEDBACK) {
+  cron.cronTaskUpdateWBReviews.start();
+}
+if (CRON_RUN_WB_FEEDBACKS_SUMMARIZE) {
+  cron.cronTaskSummarizeWBReviews.start();
+}
+if (CRON_RUN_WB_FEEDBACKS_AI_SUMMARIZE) {
+  cron.cronTaskAiSummarizeWBReviews.start();
+}
 
 app.use(express.json({ limit: '10mb' }));
 app.use(securityMiddleware.checkAccessPermission);

@@ -100,7 +100,9 @@ async function aiSummarizeWBReviews() {
     }
 
     const REQUEST_LIMIT_PER_CRON_TASK = 10;
-    const taskIsComplete = await mpReviews.wbReviews.updateReviewSummsAI(REQUEST_LIMIT_PER_CRON_TASK);
+    const taskIsComplete = await mpReviews.wbReviews.updateReviewSummsAI(
+      REQUEST_LIMIT_PER_CRON_TASK,
+    );
     if (taskIsComplete) {
       await task.setAsCompleted(uncompletedTask._id.toString());
     }
