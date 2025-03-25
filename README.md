@@ -38,13 +38,18 @@ npm run preview
 
 Application is using environment variables. You have to define:
 
-- NODE_ENV (development or production).
-- PORT (on which the server will run locally), default: 3000.
-- DB (mongodb URI to connect to, example: mongodb://127.0.0.1:27017/name-of-database), default: mongodb://localhost:27017/easy-marketplace-reviews.
-- API_KEY (to access application's REST API).
-- WB_TOKEN (token from your WB Account with access to feedbacks API).
-- WB_FEEDBACKS_URL (url to WB REST API feedbacks endpoint), default: https://feedbacks-api.wildberries.ru/api/v1/feedbacks.
-- CRON_TIME_WB_FEEDBACKS (cron time string for wb feedbacks update schedule), default: "*/1 * * * *" (runs every minute).
+- NODE_ENV development or production.
+- PORT on which the server will run locally, default: 3000.
+- DB mongodb URI to connect to, example: mongodb://127.0.0.1:27017/name-of-database, default: mongodb://localhost:27017/easy-marketplace-reviews.
+- API_KEY to access application's REST API.
+- WB_TOKEN token from your WB Account with access to feedbacks API.
+- WB_FEEDBACKS_URL url to WB REST API feedbacks endpoint, default: https://feedbacks-api.wildberries.ru/api/v1/feedbacks.
+- CRON_TIME_WB_FEEDBACKS cron time string for wb feedbacks update schedule, default: "*/1 * * * *" (runs every minute).
+- CRON_TIME_WB_FEEDBACKS_SUMMARIZE cron time string for wb feedbacks summarize prepare schedule, default: "*/2 * * * *" (runs every 2 minutes).
+- CRON_TIME_WB_FEEDBACKS_AI_SUMMARIZE cron rime string for wb feedbacks ai summarization scgedule, default: "*/5 * * * *" (runs every 5 minutes).
+- SERVICE_EASY_AI_ROUTER_HOST is host url for Easy-AI-Router server.
+- SERVICE_EASY_AI_ROUTER_ACCESS_OPENROUTER is API-KEY to access openrouter lib on Easy-AI-Router server.
+- SERVICE_EASY_AI_ROUTER_OPENROUTER_LIMIT is a NUMBER of request's limit per day for Easy-AI-Router openrouter REST API.
 
 You can define all needed variables in .env file in root folder of this application.
 
@@ -62,6 +67,7 @@ EasyOneWeb LLC 2020 - 2025. All rights reserved. Code author: Kirill Makeev. See
 - [ ] Proper error handler
 - [ ] REST API review response with limits
 - [ ] Integrate with Easy-AI-Router: WB Reviews summarization
+- [ ] Integrate with Easy-AI-Router: Photo descriptions
 - [x] REFACTOR to proper libs
 - [x] Create task only if there's no unfinished task
 - [x] Get All Tasks by desc date
