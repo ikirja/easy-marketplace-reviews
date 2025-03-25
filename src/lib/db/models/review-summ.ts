@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-import { FeedbackType } from '../../../../types/db';
+import { FeedbackType, AiReviewSummData } from '../../../../types/db';
 
 interface ReviewSummarization {
   createdAt: Date;
@@ -10,6 +10,8 @@ interface ReviewSummarization {
   reviews: string[];
   productId: string;
   productValuation: number;
+  isComplete: boolean;
+  aiData: AiReviewSummData;
 }
 
 const reviewSummarizationSchema = new Schema<ReviewSummarization>({
@@ -28,8 +30,7 @@ const reviewSummarizationSchema = new Schema<ReviewSummarization>({
   reviews: [
     {
       type: String,
-      default: '',
-    }
+    },
   ],
   productId: {
     type: String,
@@ -39,6 +40,24 @@ const reviewSummarizationSchema = new Schema<ReviewSummarization>({
     type: Number,
     required: true,
   },
+  isComplete: {
+    type: Boolean,
+    default: false,
+  },
+  aiData: {
+    summary: {
+      type: String,
+      default: '',
+    },
+    advantages: [
+      {
+        type: String,
+      },
+    ],
+  },
 });
 
-export default model<ReviewSummarization>('ReviewSummarization', reviewSummarizationSchema);
+export default model<ReviewSummarization>(
+  'ReviewSummarization',
+  reviewSummarizationSchema,
+);

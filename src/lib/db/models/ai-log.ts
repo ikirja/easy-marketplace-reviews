@@ -20,7 +20,7 @@ const aiLogSchema = new Schema<AiLog>({
   type: {
     type: String,
     required: true,
-  }
+  },
 });
 
 export default model<AiLog>('AiLog', aiLogSchema);

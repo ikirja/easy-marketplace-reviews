@@ -15,4 +15,10 @@ export const enum FeedbackType {
 export const enum AiLogType {
   AISummarizeWBReviews = 'aisummwbreviews',
   AISummarizeOZONReviews = 'aisummozonreviews',
+  FreeForm = 'freeform',
 }
+
+export type AiReviewSummData = {
+  summary: string;
+  advantages: string[];
+};
