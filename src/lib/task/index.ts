@@ -23,7 +23,7 @@ export async function createTask(type: string) {
   const uncompletedTask = await db.models.task.findOne({ isComplete: false });
   if (uncompletedTask) throw new Error('uncompleted task is found');
 
-  await db.models.task.create({ type: type });
+  await db.models.task.create({ task: type });
 }
 
 export async function setAsCompleted(id: string) {
