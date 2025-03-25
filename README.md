@@ -45,8 +45,11 @@ Application is using environment variables. You have to define:
 - WB_TOKEN token from your WB Account with access to feedbacks API.
 - WB_FEEDBACKS_URL url to WB REST API feedbacks endpoint, default: https://feedbacks-api.wildberries.ru/api/v1/feedbacks.
 - CRON_TIME_WB_FEEDBACKS cron time string for wb feedbacks update schedule, default: "*/1 * * * *" (runs every minute).
+- CRON_RUN_WB_FEEDBACK boolean flag to run or not cron WB Feedback task.
 - CRON_TIME_WB_FEEDBACKS_SUMMARIZE cron time string for wb feedbacks summarize prepare schedule, default: "*/2 * * * *" (runs every 2 minutes).
+- CRON_RUN_WB_FEEDBACKS_SUMMARIZE boolean flag to run or not cron WB Feedback Summarize task.
 - CRON_TIME_WB_FEEDBACKS_AI_SUMMARIZE cron rime string for wb feedbacks ai summarization scgedule, default: "*/5 * * * *" (runs every 5 minutes).
+- CRON_RUN_WB_FEEDBACKS_AI_SUMMARIZE boolean flag to run or not cron WB Feedback AI Summarize task.
 - SERVICE_EASY_AI_ROUTER_HOST is host url for Easy-AI-Router server.
 - SERVICE_EASY_AI_ROUTER_ACCESS_OPENROUTER is API-KEY to access openrouter lib on Easy-AI-Router server.
 - SERVICE_EASY_AI_ROUTER_OPENROUTER_LIMIT is a NUMBER of request's limit per day for Easy-AI-Router openrouter REST API.
