@@ -189,7 +189,7 @@ export async function addReviewSumms(minProductValuation: number) {
 export async function updateReviewSummsAI(limit: number): Promise<boolean> {
   let allReviewSummsComplete = true;
   let reviewSumms = await getReviewSummsUncompleted();
-  
+
   if (reviewSumms.length > limit) {
     reviewSumms = reviewSumms.slice(0, limit);
     allReviewSummsComplete = false;
