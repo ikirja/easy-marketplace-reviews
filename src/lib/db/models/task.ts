@@ -1,18 +1,13 @@
 import { Schema, model, Types } from 'mongoose';
 
+import { TaskType } from '../../../../types/db';
+
 interface Task {
   _id: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
   isComplete: boolean;
-  task: Tasks;
-}
-
-enum Tasks {
-  WBReviews = 'wbreviews',
-  OZONReviews = 'ozonreviews',
-  AISummarizeWBReviews = 'aisummwbreviews',
-  AISummarizeOZONReviews = 'aisummozonreviews',
+  task: TaskType;
 }
 
 const taskSchema = new Schema<Task>({
@@ -30,7 +25,7 @@ const taskSchema = new Schema<Task>({
   },
   task: {
     type: String,
-    default: Tasks.WBReviews,
+    default: TaskType.WBReviews,
     required: true,
   },
 });
