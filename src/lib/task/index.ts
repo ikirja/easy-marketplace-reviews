@@ -11,7 +11,7 @@ export async function getUncompletedTask(type: string) {
 
   const uncompletedTask = await db.models.task.findOne({
     isComplete: false,
-    type: type,
+    task: type,
   });
 
   return uncompletedTask;
