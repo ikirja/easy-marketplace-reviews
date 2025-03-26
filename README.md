@@ -69,8 +69,8 @@ EasyOneWeb LLC 2020 - 2025. All rights reserved. Code author: Kirill Makeev. See
 - [ ] Ozon Reviews
 - [ ] Proper error handler
 - [ ] REST API review response with limits
-- [ ] Integrate with Easy-AI-Router: WB Reviews summarization
-- [ ] Integrate with Easy-AI-Router: Photo descriptions
+- [x] Integrate with Easy-AI-Router: WB Reviews summarization
+- [x] Remove Easy-AI-Router REST API: ping, key, chat
 - [x] REFACTOR to proper libs
 - [x] Create task only if there's no unfinished task
 - [x] Get All Tasks by desc date
