@@ -43,9 +43,14 @@ async function updateWBReviews() {
     await mpReviews.wbReviews.updateReviews();
     await task.setAsCompleted(uncompletedTask._id.toString());
   } catch (error) {
+    FLAGS.isRunning.mpReviews.wildberries = false;
+
+    let message = '[cron]: update wb reviews error';
     if (error instanceof Error) {
-      await log.createLog(error.message);
+      message = error.message;
     }
+
+    await log.createLog(message);
   }
 
   FLAGS.isRunning.mpReviews.wildberries = false;
@@ -70,9 +75,14 @@ async function summarizeWBReviews() {
     await mpReviews.wbReviews.addReviewSumms(MINIMUM_PRODUCT_VALUATION);
     await task.setAsCompleted(uncompletedTask._id.toString());
   } catch (error) {
+    FLAGS.isRunning.summarizeReviews.wildberries = false;
+
+    let message = '[cron]: summarize wb reviews error';
     if (error instanceof Error) {
-      await log.createLog(error.message);
+      message = error.message;
     }
+
+    await log.createLog(message);
   }
 
   FLAGS.isRunning.summarizeReviews.wildberries = false;
@@ -107,9 +117,14 @@ async function aiSummarizeWBReviews() {
       await task.setAsCompleted(uncompletedTask._id.toString());
     }
   } catch (error) {
+    FLAGS.isRunning.aiSummarizeReviews.wildberries = false;
+
+    let message = '[cron]: ai summarize wb reviews error';
     if (error instanceof Error) {
-      await log.createLog(error.message);
+      message = error.message;
     }
+
+    await log.createLog(message);
   }
 
   FLAGS.isRunning.aiSummarizeReviews.wildberries = false;
